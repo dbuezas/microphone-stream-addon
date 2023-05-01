@@ -19,6 +19,6 @@ host_network: true
 audio: true
 video: true
 options:
-  command: ffmpeg -f alsa -ac 1 -i default -c:a libopus -ar:a 16000 -ac:a 1 -rtsp_transport tcp -f rtsp rtsp://localhost:8554/webcam 
+  command: ffmpeg -f alsa -ac 1 -i default -c:a libopus -ar:a 16000 -ac:a 1 -af adelay=0ms -rtsp_transport tcp -f rtsp rtsp://localhost:8554/webcam
 schema:
   command: str
