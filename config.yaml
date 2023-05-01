@@ -1,0 +1,24 @@
+---
+name: microphone stream
+version: dev
+slug: mic
+description: SSH & Web Terminal access to your Home Assistant instance
+url: https://github.com/hassio-addons/addon-ssh
+codenotary: codenotary@frenck.dev
+advanced: true
+startup: application
+init: false
+homeassistant: 0.92.0b2
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+host_network: true
+audio: true
+video: true
+options:
+  command: ffmpeg -f alsa -ac 1 -i default -c:a libopus -ar:a 16000 -ac:a 1 -rtsp_transport tcp -f rtsp rtsp://localhost:8554/webcam 
+schema:
+  command: str
